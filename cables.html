@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Bloc de Notas Personal</title>
+    <title>Información 1</title>
     <style>
         body {
             font-family: sans-serif;
@@ -22,14 +22,13 @@
     </style>
 </head>
 <body>
-    <h1>Añadir Informacion</h1>
-    <textarea id="mi-texto"></textarea>
+    <h1>Añadir Información</h1>
+    <textarea id="info-text-1"></textarea>
 
     <script>
-        const textoArea = document.getElementById('mi-texto');
-        const localStorageKey = 'miInformacionGuardada';
+        const textoArea = document.getElementById('info-text-1');
+        const localStorageKey = 'infoGuardada1';
 
-        // Cargar la información guardada al cargar la página
         window.onload = function() {
             const infoGuardada = localStorage.getItem(localStorageKey);
             if (infoGuardada) {
@@ -37,7 +36,6 @@
             }
         };
 
-        // Guardar la información cada vez que cambia el contenido del textarea
         textoArea.addEventListener('input', function() {
             localStorage.setItem(localStorageKey, textoArea.value);
         });
