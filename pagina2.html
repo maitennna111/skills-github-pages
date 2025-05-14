@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Bloc de Notas Personal</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi Información</h1>
+    <textarea id="mi-texto"></textarea>
+
+    <script>
+        const textoArea = document.getElementById('mi-texto');
+        const localStorageKey = 'miInformacionGuardada';
+
+        // Cargar la información guardada al cargar la página
+        window.onload = function() {
+            const infoGuardada = localStorage.getItem(localStorageKey);
+            if (infoGuardada) {
+                textoArea.value = infoGuardada;
+            }
+        };
+
+        // Guardar la información cada vez que cambia el contenido del textarea
+        textoArea.addEventListener('input', function() {
+            localStorage.setItem(localStorageKey, textoArea.value);
+        });
+    </script>
+</body>
+</html>
